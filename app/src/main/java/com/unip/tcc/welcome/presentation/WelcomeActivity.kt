@@ -14,6 +14,6 @@ class WelcomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        binding.text.text = welcomeViewMode.writeScreen("enzo")
+
     }
 }

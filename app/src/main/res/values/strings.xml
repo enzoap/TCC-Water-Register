@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">TCC</string>
+    <string name="welcome">Bem vindo ao aplicativo \ncontinue usando para podermos contabilizar os gastos de agua.</string>
+    <string name="atualizar">Atualizar</string>
+    <string name="logo_com_gota_de_gua">Logo com gota de água</string>
 </resources>

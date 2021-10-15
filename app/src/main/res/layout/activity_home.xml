@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="00000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.079"
+        app:srcCompat="@drawable/logo" />
+
+    <ImageView
+        android:id="@+id/circulo"
+        android:layout_width="364dp"
+        android:layout_height="397dp"
+        android:background="#009C27B0"
+        android:backgroundTint="#009C27B0"
+        android:foregroundTint="#009C27B0"
+        android:tint="#2196F3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo"
+        app:layout_constraintVertical_bias="0.265"
+        app:srcCompat="@drawable/Circulo"
+        tools:layout_editor_absoluteX="23dp" />
+
+    <TextView
+        android:id="@+id/TituloGrafico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gastos dos ultimos 7 dias"
+        android:textColor="#424141"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="66dp"
+        tools:layout_editor_absoluteY="621dp" />
+
+    <TextView
+        android:id="@+id/contagematual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="300"
+        android:textAlignment="center"
+        android:textColor="#00BCD4"
+        android:textSize="96sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="122dp"
+        tools:layout_editor_absoluteY="230dp" />
+
+    <TextView
+        android:id="@+id/mensagemprincipal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Opa! temos um  desperdício :("
+        android:textColor="#424141"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="43dp"
+        tools:layout_editor_absoluteY="358dp" />
+
+    <TextView
+        android:id="@+id/contagemanterior"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="300"
+        android:textColor="#52BF56"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="153dp"
+        tools:layout_editor_absoluteY="399dp" />
+
+    <TextView
+        android:id="@+id/Gastosontem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gastos ontém"
+        android:textColor="#424141"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="130dp"
+        tools:layout_editor_absoluteY="492dp" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

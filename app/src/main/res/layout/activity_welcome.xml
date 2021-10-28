@@ -7,13 +7,14 @@
     tools:context=".welcome.presentation.WelcomeActivity">
 
     <LinearLayout
-        android:id="@+id/view_sem_dados"
+        android:id="@+id/viewSemDados"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
@@ -36,6 +37,94 @@
             android:text="@string/welcome"
             android:textSize="18sp" />
     </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/viewPrincipal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_atualizar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:contentDescription="@string/logo_com_gota_de_gua"
+                app:srcCompat="@drawable/logo" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/circle"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="50dp">
+
+                <TextView
+                    android:id="@+id/gastoAtual"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="40sp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/blue_principal"
+                    android:text="250"/>
+
+                <TextView
+                    android:id="@+id/mensagemPrincipal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="32sp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:text="Opa! temos \num  desperdício"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="32sp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/black"
+                    android:text="Gasto ontem"/>
+
+                <TextView
+                    android:id="@+id/gastoAnterior"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="36sp"
+                    android:textColor="@color/green_principal"
+                    android:layout_marginTop="20dp"
+                    android:text="250"/>
+
+
+            </LinearLayout>
+            
+            <com.github.mikephil.charting.charts.BarChart
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:layout_marginTop="20dp"
+                >
+
+            </com.github.mikephil.charting.charts.BarChart>
+            
+        </LinearLayout>
+
+    </ScrollView>
+
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_atualizar"

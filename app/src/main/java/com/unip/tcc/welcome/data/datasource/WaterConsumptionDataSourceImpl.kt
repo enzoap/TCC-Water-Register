@@ -1,30 +1,16 @@
 package com.unip.tcc.welcome.data.datasource
 
 import com.unip.tcc.welcome.data.api.WaterConsumption
-import com.unip.tcc.welcome.data.model.WaterConsumptionDayResponse
-import com.unip.tcc.welcome.data.model.WaterConsumptionWeekResponse
-import com.unip.tcc.welcome.data.model.WaterConsumptionYesterdayResponse
+import com.unip.tcc.welcome.data.model.WaterConsumptionResponse
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 internal class WaterConsumptionDataSourceImpl(
     private val waterConsumption: WaterConsumption
 ): WaterConsumptionDataSource {
-    override fun getWaterConsumptionDay(): Flow<WaterConsumptionDayResponse> {
+    override fun getWaterConsumption(): Flow<WaterConsumptionResponse> {
         return flow {
-            emit(waterConsumption.waterConsumptionDay())
-        }
-    }
-
-    override fun getYesterdayWaterConsumption(date: String): Flow<WaterConsumptionYesterdayResponse> {
-        return flow {
-            emit(waterConsumption.waterConsumptionYesterday(date))
-        }
-    }
-
-    override fun getWeekWaterConsumption(date: String): Flow<WaterConsumptionWeekResponse> {
-        return flow {
-            emit(waterConsumption.waterConsumptionWeek(date))
+            emit(waterConsumption.waterConsumption())
         }
     }
 }

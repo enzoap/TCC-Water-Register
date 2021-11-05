@@ -4,6 +4,8 @@ import com.unip.tcc.core.retrofit.HttpClient
 import com.unip.tcc.welcome.data.api.WaterConsumption
 import com.unip.tcc.welcome.data.datasource.WaterConsumptionDataSource
 import com.unip.tcc.welcome.data.datasource.WaterConsumptionDataSourceImpl
+import com.unip.tcc.welcome.domain.repository.WaterRepositoryImpl
+import com.unip.tcc.welcome.domain.usecase.GetWaterConsumption
 import com.unip.tcc.welcome.presentation.WelcomeViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.loadKoinModules
@@ -11,7 +13,13 @@ import org.koin.dsl.module
 
 class WelcomeModules {
     private val presentationModules =  module {
-        viewModel { WelcomeViewModel() }
+        viewModel { WelcomeViewModel(
+            getWaterConsumption = GetWaterConsumption(
+                waterRepository = WaterRepositoryImpl(
+                    waterConsumptionDataSource = get()
+                )
+            )
+        ) }
     }
 
     private val networkModules = module {

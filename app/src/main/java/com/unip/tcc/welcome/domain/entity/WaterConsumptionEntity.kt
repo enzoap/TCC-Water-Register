@@ -3,7 +3,7 @@ package com.unip.tcc.welcome.domain.entity
 import com.google.gson.annotations.SerializedName
 import com.unip.tcc.welcome.data.model.Day
 
-data class WaterConsumationEntity(
+data class WaterConsumptionEntity(
     val qtdToday: String,
     val qtdYesterday: String,
     val week: List<Day>

@@ -7,10 +7,12 @@ import com.unip.tcc.welcome.data.datasource.WaterConsumptionDataSourceImpl
 import com.unip.tcc.welcome.domain.repository.WaterRepositoryImpl
 import com.unip.tcc.welcome.domain.usecase.GetWaterConsumption
 import com.unip.tcc.welcome.presentation.WelcomeViewModel
+import kotlinx.coroutines.InternalCoroutinesApi
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.loadKoinModules
 import org.koin.dsl.module
 
+@InternalCoroutinesApi
 class WelcomeModules {
     private val presentationModules =  module {
         viewModel { WelcomeViewModel(

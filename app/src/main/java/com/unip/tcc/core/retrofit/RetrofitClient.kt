@@ -7,7 +7,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-private const val BASE_URL = ""
+private const val BASE_URL = "https://aplicacao-tcc-unip.herokuapp.com/"
 
 class RetrofitClient(private val context: Context) {
     private val gson: Gson by lazy { GsonBuilder().create() }

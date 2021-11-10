@@ -9,6 +9,19 @@ import com.unip.tcc.databinding.ActivityWelcomeBinding
 import com.unip.tcc.welcome.domain.entity.WaterConsumptionEntity
 import kotlinx.coroutines.InternalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import com.github.mikephil.charting.charts.BarChart
+import com.github.mikephil.charting.components.Description
+import com.github.mikephil.charting.data.BarData
+import com.github.mikephil.charting.data.BarDataSet
+import com.github.mikephil.charting.data.BarEntry
+import com.github.mikephil.charting.components.XAxis
+import com.github.mikephil.charting.components.YAxis
+
+
+
+
+
+
 
 @InternalCoroutinesApi
 class WelcomeActivity : AppCompatActivity() {
@@ -16,12 +29,14 @@ class WelcomeActivity : AppCompatActivity() {
     private val binding by lazy {
         ActivityWelcomeBinding.inflate(layoutInflater)
     }
+    private lateinit var barChart:BarChart
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         observer()
         update()
+        setupGrafico()
     }
 
     private fun observer(){
@@ -59,9 +74,10 @@ class WelcomeActivity : AppCompatActivity() {
             gastoAnterior.text = "${entity.qtdYesterday} litros"
             mensagemPrincipal.text = getString(message)
             val circle = circle.background as GradientDrawable
-            circle.setStroke(10, ContextCompat.getColor(this@WelcomeActivity, circleColor))
+            circle.setStroke(20, ContextCompat.getColor(this@WelcomeActivity, circleColor))
         }
         showView()
+        showBarChart(entity)
     }
 
     private fun showView() {
@@ -71,9 +87,55 @@ class WelcomeActivity : AppCompatActivity() {
         }
     }
 
+    private fun setupGrafico(){
+        barChart = binding.grafico
+    }
+
+    private fun showBarChart(entity: WaterConsumptionEntity) {
+
+        val valueList = ArrayList<Float>()
+        val entries: ArrayList<BarEntry> = ArrayList()
+        val title = "Vazão em litros"
+
+        //input data
+        for (element in entity.week) {
+
+            valueList.add( element.quantity.toFloat())
+        }
+
+        //fit the data into a bar
+        for (i in 0 until valueList.size) {
+            val barEntry = BarEntry(i.toFloat(), valueList[i])
+            entries.add(barEntry)
+        }
+        val barDataSet = BarDataSet(entries, title)
+        barChart.setDrawGridBackground(false)
+        barChart.setDrawBarShadow(false)
+        barChart.setDrawBorders(false)
+
+        val description = Description()
+        description.isEnabled = false
+        barChart.description = description
+
+        barChart.animateY(1000);
+        val xAxis = barChart.xAxis
+        xAxis.setDrawGridLines(false);
+        xAxis.setDrawAxisLine(false);
+        xAxis.isEnabled = false
+
+        val rightAxis = barChart.axisRight
+        rightAxis.isEnabled = false
+
+        val data = BarData(barDataSet)
+        barChart.data = data
+        barChart.invalidate()
+
+    }
+
     private fun update() {
         binding.btnAtualizar.setOnClickListener {
             welcomeViewModel.getInfo()
         }
     }
 }
+

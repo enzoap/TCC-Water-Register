@@ -88,7 +88,7 @@
                     android:id="@+id/gastoAtual"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="40sp"
+                    android:textSize="30sp"
                     android:layout_marginTop="20dp"
                     android:textColor="@color/blue_principal"
                     android:text="250"/>
@@ -97,7 +97,7 @@
                     android:id="@+id/mensagemPrincipal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="32sp"
+                    android:textSize="28sp"
                     android:layout_marginTop="20dp"
                     android:textColor="@color/black"
                     android:gravity="center"
@@ -107,7 +107,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="32sp"
+                    android:textSize="28sp"
                     android:layout_marginTop="20dp"
                     android:textColor="@color/black"
                     android:text="Gasto ontem"/>
@@ -123,8 +123,18 @@
 
 
             </LinearLayout>
-            
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gráfico semanal"
+                android:textSize="28sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_marginTop="20dp">
+
+            </TextView>
             <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/grafico"
                 android:layout_width="match_parent"
                 android:layout_height="240dp"
                 android:layout_marginTop="20dp"

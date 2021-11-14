@@ -16,6 +16,12 @@ import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.components.YAxis
+import com.github.mikephil.charting.components.AxisBase
+
+import com.github.mikephil.charting.formatter.ValueFormatter
+
+
+
 
 
 
@@ -96,11 +102,13 @@ class WelcomeActivity : AppCompatActivity() {
         val valueList = ArrayList<Float>()
         val entries: ArrayList<BarEntry> = ArrayList()
         val title = "Vazão em litros"
+        val xAxisLabel: ArrayList<String> = ArrayList()
 
         //input data
         for (element in entity.week) {
 
             valueList.add( element.quantity.toFloat())
+            xAxisLabel.add(element.date)
         }
 
         //fit the data into a bar
@@ -109,6 +117,7 @@ class WelcomeActivity : AppCompatActivity() {
             entries.add(barEntry)
         }
         val barDataSet = BarDataSet(entries, title)
+        barDataSet.valueTextSize = 12f
         barChart.setDrawGridBackground(false)
         barChart.setDrawBarShadow(false)
         barChart.setDrawBorders(false)
@@ -121,7 +130,17 @@ class WelcomeActivity : AppCompatActivity() {
         val xAxis = barChart.xAxis
         xAxis.setDrawGridLines(false);
         xAxis.setDrawAxisLine(false);
-        xAxis.isEnabled = false
+        xAxis.position = XAxis.XAxisPosition.BOTTOM
+        xAxis.isGranularityEnabled = true;
+
+        val formatter: ValueFormatter = object : ValueFormatter() {
+            override fun getFormattedValue(value: Float): String {
+                return xAxisLabel[value.toInt()]
+            }
+        }
+        xAxis.valueFormatter = formatter
+        xAxis.granularity = 1f
+
 
         val rightAxis = barChart.axisRight
         rightAxis.isEnabled = false
@@ -137,5 +156,11 @@ class WelcomeActivity : AppCompatActivity() {
             welcomeViewModel.getInfo()
         }
     }
+
+    private fun xLabel() {
+
+    }
+
+
 }
 
